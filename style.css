@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #10131a;
+  --paper: #f7f2e8;
+  --yellow: #ffd43b;
+  --orange: #ff7a30;
+  --blue: #3568ff;
+  --red: #ef476f;
+  --line: #171a22;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, system-ui, sans-serif;
+}
+.nav {
+  height: 76px;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--line);
+  background: var(--paper);
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 1.1rem;
+}
+.brand span { background: var(--yellow); padding: 2px 5px; }
+.nav-link {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+.hero {
+  min-height: 650px;
+  padding: 7vw 6vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6vw;
+  align-items: center;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255,212,59,.45), transparent 28%),
+    var(--paper);
+}
+.eyebrow, .section-label {
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.eyebrow { color: var(--blue); margin-bottom: 14px; }
+h1, h2, h3 { margin: 0; }
+h1, h2 {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  letter-spacing: .02em;
+  line-height: .88;
+}
+h1 { font-size: clamp(4.7rem, 10vw, 9rem); }
+h1 span { color: var(--blue); }
+.tagline {
+  margin: 24px 0 12px;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+.intro {
+  max-width: 590px;
+  line-height: 1.7;
+  color: #444955;
+}
+.buttons { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 22px;
+  border: 3px solid var(--line);
+  font-weight: 900;
+  font-size: .86rem;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.button:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--line); }
+.primary { background: var(--yellow); color: var(--ink); }
+.secondary { color: var(--ink); background: white; }
+.game-card {
+  border: 4px solid var(--line);
+  background: white;
+  box-shadow: 14px 14px 0 var(--line);
+  transform: rotate(1.5deg);
+}
+.card-top, .card-bottom {
+  padding: 12px 16px;
+  border-bottom: 3px solid var(--line);
+  font-size: .72rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+}
+.card-bottom { border-top: 3px solid var(--line); border-bottom: 0; line-height: 1.5; }
+.hallway {
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#dff2ff 0 53%, #cbd1dc 53% 54%, #f1c76b 54% 100%);
+}
+.hallway:before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 75px, rgba(16,19,26,.13) 76px 79px);
+}
+.locker {
+  position: absolute; top: 100px; width: 75px; height: 175px;
+  background: #4d78d8; border: 4px solid var(--line);
+}
+.l1 { left: 35px; } .l2 { left: 115px; }
+.door {
+  position: absolute; right: 45px; top: 58px; width: 130px; height: 250px;
+  background: #f7f2e8; border: 5px solid var(--line);
+  display: grid; place-items: center; text-align: center;
+  font-family: "Bebas Neue", Impact, sans-serif; font-size: 2rem;
+}
+.runner { position: absolute; left: 43%; bottom: 68px; font-size: 5rem; filter: drop-shadow(4px 5px 0 rgba(16,19,26,.3)); }
+.sun { position: absolute; right: 30px; top: 20px; font-size: 2.5rem; color: var(--orange); }
+.paper { position: absolute; font-size: 2rem; color: var(--red); }
+.p1 { left: 30%; top: 75px; transform: rotate(25deg); }
+.p2 { left: 70%; top: 150px; transform: rotate(-20deg); }
+.floor-line { position: absolute; left: 0; right: 0; bottom: 50px; border-top: 5px solid var(--line); transform: skewY(-7deg); }
+.section { padding: 100px 6vw; border-top: 3px solid var(--line); }
+.section-label { color: var(--orange); margin-bottom: 16px; }
+h2 { font-size: clamp(3.5rem, 7vw, 6.5rem); max-width: 800px; }
+.grid {
+  margin-top: 55px; display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 3px solid var(--line); border-left: 3px solid var(--line);
+}
+.grid article { padding: 30px; border-right: 3px solid var(--line); border-bottom: 3px solid var(--line); min-height: 240px; }
+.icon { font-size: 2.4rem; margin-bottom: 30px; }
+.grid h3, .download-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+.grid p, .download-card p { color: #555a66; line-height: 1.6; }
+.download-section {
+  padding: 100px 6vw;
+  border-top: 3px solid var(--line);
+  background: var(--blue);
+  color: white;
+}
+.download-section .section-label { color: var(--yellow); }
+.download-section > p { max-width: 650px; line-height: 1.6; }
+.downloads {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px; margin-top: 45px;
+}
+.download-card {
+  background: white; color: var(--ink); border: 4px solid var(--line);
+  padding: 34px; box-shadow: 10px 10px 0 var(--line);
+}
+.platform { font-size: 2.6rem; margin-bottom: 15px; }
+.full { width: 100%; margin-top: 16px; }
+.download-card small { display: block; margin-top: 13px; font-weight: 700; color: #6b707b; }
+.download-note { margin-top: 35px; font-size: .85rem; opacity: .9; }
+code { background: rgba(255,255,255,.18); padding: 2px 5px; }
+footer {
+  padding: 35px 6vw; display: flex; justify-content: space-between; gap: 20px;
+  border-top: 3px solid var(--line); font-size: .85rem;
+}
+footer span { color: #686d77; }
+@media (max-width: 850px) {
+  .hero { grid-template-columns: 1fr; padding-top: 70px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .downloads { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .nav { padding: 0 5vw; }
+  .hero, .section, .download-section { padding-left: 5vw; padding-right: 5vw; }
+  h1 { font-size: 4.5rem; }
+  .grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; }
+}
+
+.coming-soon {
+  width: 100%;
+  margin-top: 16px;
+  padding: 15px 22px;
+  border: 3px solid var(--line);
+  background: #e9e9e9;
+  color: #777;
+  text-align: center;
+  font-weight: 900;
+  font-size: .86rem;
+  cursor: not-allowed;
+}
