@@ -6,6 +6,40 @@
   <title>School Dash | Race Before the Bell</title>
   <meta name="description" content="School Dash is a fast-paced 2D school runner. Reach the Physics Lab before the bell!">
   <link rel="stylesheet" href="style.css">
+
+<style>
+  .mac-warning-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,.72);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .mac-warning-backdrop.show { display: flex; }
+  .mac-warning {
+    width: min(520px, 100%);
+    background: #fff;
+    color: #111;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 24px 80px rgba(0,0,0,.35);
+  }
+  .mac-warning h3 { margin: 0 0 10px; }
+  .mac-warning p { margin: 10px 0; line-height: 1.55; }
+  .mac-warning ol { margin: 14px 0 20px; padding-left: 22px; line-height: 1.6; }
+  .mac-warning-close {
+    border: 0;
+    border-radius: 10px;
+    padding: 11px 18px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -86,5 +120,37 @@
     <div><b>🏫 SCHOOL DASH</b><br><span>Race before the bell.</span></div>
     <div>Built with Python + Pygame</div>
   </footer>
+
+<div id="macWarning" class="mac-warning-backdrop" role="dialog" aria-modal="true" aria-labelledby="macWarningTitle">
+  <div class="mac-warning">
+    <h3 id="macWarningTitle">🍎 One macOS security step</h3>
+    <p>Your download has started. Because School Dash is not Apple-notarized yet, macOS may show a security warning when you open it.</p>
+    <p>If you see <strong>“Apple could not verify School Dash”</strong>:</p>
+    <ol>
+      <li>Click <strong>Done</strong> on the warning.</li>
+      <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+      <li>Scroll down and click <strong>Open Anyway</strong> for School Dash.</li>
+    </ol>
+    <button class="mac-warning-close" id="macWarningClose" type="button">Got it</button>
+  </div>
+</div>
+
+<script>
+  const macDownload = document.querySelector('a[href="downloads/SchoolDash-macOS.zip"]');
+  const macWarning = document.getElementById('macWarning');
+  const macWarningClose = document.getElementById('macWarningClose');
+
+  if (macDownload) {
+    macDownload.addEventListener('click', () => {
+      setTimeout(() => macWarning.classList.add('show'), 180);
+    });
+  }
+
+  macWarningClose.addEventListener('click', () => macWarning.classList.remove('show'));
+  macWarning.addEventListener('click', (event) => {
+    if (event.target === macWarning) macWarning.classList.remove('show');
+  });
+</script>
+
 </body>
 </html>
